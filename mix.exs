@@ -31,7 +31,7 @@ defmodule VeliTurnstile.MixProject do
   end
 
   defp description() do
-    "Cloudflare Turnstile validator module for Veli"
+    "Cloudflare Turnstile validator for Veli."
   end
 
   defp package() do
