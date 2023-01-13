@@ -1,27 +1,45 @@
 defmodule VeliTurnstile.MixProject do
   use Mix.Project
 
-  def project do
+  @version "0.1.0"
+  @source_url "https://github.com/cart96/veli_turnstile"
+
+  def project() do
     [
       app: :veli_turnstile,
-      version: "0.1.0",
-      elixir: "~> 1.14",
-      start_permanent: Mix.env() == :prod,
-      deps: deps()
+      version: @version,
+      elixir: "~> 1.8",
+      consolidate_protocols: Mix.env() != :test,
+      description: description(),
+      package: package(),
+      deps: deps(),
+      name: "VeliTurnstile",
+      source_url: @source_url
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     []
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.4"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description() do
+    "Cloudflare Turnstile validator module for Veli"
+  end
+
+  defp package() do
+    [
+      name: "veli_turnstile",
+      licenses: ["MIT License"],
+      links: %{"GitHub" => @source_url},
+      maintainers: ["icecat696 (cart96)"]
     ]
   end
 end

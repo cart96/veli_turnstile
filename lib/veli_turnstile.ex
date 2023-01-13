@@ -1,6 +1,11 @@
 defmodule VeliTurnstile do
   @moduledoc """
   Cloudflare Turnstile validator module for Veli.
+
+      Veli.add_validator(:turnstile, VeliTurnstile)
+
+      rule = [type: :string, turnstile: "secret key"]
+      Veli.valid("turnstile response", rule) |> Veli.error()
   """
   @spec valid?(binary, binary) :: boolean
   def valid?(token, secret) when is_binary(token) and is_binary(secret) do

@@ -16,11 +16,22 @@ end
 
 ## Documentation
 
-Documentation is avaible at [HexDocs](https://hexdocs.pm/veli).
+Documentation is avaible at [HexDocs](https://hexdocs.pm/veli_turnstile).
 
 ## Example
 
-TODO
+First, you need to add validator to Veli:
+
+```ex
+Veli.add_validator(:turnstile, VeliTurnstile)
+```
+
+Now you can use the validator:
+
+```ex
+rule = [type: :string, turnstile: "secret key"]
+Veli.valid("turnstile response", rule) |> Veli.error()
+```
 
 ## License
 
